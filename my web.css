@@ -678,7 +678,7 @@ nav svg {
     flex-direction: column;
     height: auto;
     background-color: var(--backg-color);
-    margin: 20px;
+    margin: 10px;
   }
   .about-body {
     width: 100%;
@@ -862,7 +862,7 @@ nav svg {
   }
   .body-4 {
     background-color: var(--backg-color);
-    width: calc(100% - 40px);
+    width: calc(100% - 20px);
     margin: 10px;
   }
   .project-sctn-title {
@@ -923,6 +923,7 @@ nav svg {
   }
   .body-5 {
     display: flex;
+    width: calc(100% - 20px);
     flex-direction: column;
     height: auto;
     background-color: var(--backg-color);
