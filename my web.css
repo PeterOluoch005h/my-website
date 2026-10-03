@@ -737,6 +737,7 @@ nav svg {
     align-items: center;
     flex-direction: column;
     height: auto;
+    margin: 10px;
   }
   .skill-title {
     justify-content: center;
@@ -862,7 +863,7 @@ nav svg {
   .body-4 {
     background-color: var(--backg-color);
     width: calc(100% - 40px);
-    margin: 20px;
+    margin: 10px;
   }
   .project-sctn-title {
     font-size: 40px;
@@ -926,7 +927,7 @@ nav svg {
     height: auto;
     background-color: var(--backg-color);
     overflow: hidden;
-    margin: 20px;
+    margin: 10px;
   }
   .contact-title {
     width: 100%;
