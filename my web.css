@@ -218,6 +218,7 @@ nav svg {
   overflow: hidden;
 }
 .about-image img {
+   filter: brightness(120%);
   width: 100%;
   height: auto;
   object-fit: cover;
