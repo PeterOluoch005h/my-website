@@ -85,48 +85,10 @@ nav svg {
 .open-sidebar-button {
   display: none;
 }
-.car-group {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100vw;
-  height: 100px;
-  overflow-x: auto;
-}
-.car-group::-webkit-scrollbar {
+.back-top {
   display: none;
 }
-.carousel {
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  align-items: center;
-  animation: spin 10s infinite linear;
-}
-.card {
-  flex: 0 0 10em;
-  height: 5em;
-  align-items: center;
-  justify-content: center;
-  font-size: 1em;
-  padding: 20px;
-  margin: 5px;
-  border-radius: 2px;
-  color: var(--backg-color);
-  background-image: url(features.img/image.png);
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-color: var(--color-1);
-}
-@keyframes spin {
-  from {
-    translate: 0;
-  }
-  to {
-    translate: -100%;
-  }
-}
+
 /* main content */
 .body-1,
 .body-2,
@@ -252,14 +214,18 @@ nav svg {
   color: var(--text-color);
 }
 .about-image {
-  background-image: url("pictures/BRUTALIST ME.png");
-  background-position: center;
-  background-size: cover;
+  filter: brightness(120%);
   width: 40%;
   height: auto;
   box-shadow: 8px 8px 0px 0px #000000;
   border: 5px solid black;
   transition: 0.5s;
+  overflow: hidden;
+}
+.about-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
 }
 /*.about-image:hover {
   width: calc(40% + 20px);
@@ -556,11 +522,10 @@ nav svg {
     height: 60px;
     width: 100%;
     background-color: var(--color-3);
-    position: absolute;
-    position: sticky;
+    position: fixed;
     top: 0;
     right: 0;
-    z-index: 10;
+    z-index: 1000;
   }
   .links-container {
     flex-direction: column;
@@ -582,7 +547,7 @@ nav svg {
     padding: 20px 30px;
     justify-content: flex-start;
   }
-  nav a:hover {
+  nav a:active {
     font-weight: 700;
     width: calc(100% - 20px);
     height: auto;
@@ -594,6 +559,17 @@ nav svg {
   .close-sidebar-button {
     display: block;
     padding: 10px;
+  }
+
+  .backToTopBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 15px;
+    background-color: var(--accent-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
   }
   /*.open-sidebar-button {
     position: sticky;
@@ -618,8 +594,8 @@ nav svg {
   .body-1 {
     display: flex;
     flex-direction: column;
-    width: 100%;
-    height: 160vw;
+    width: 100vw;
+    height: 100vh;
   }
   .home-greetings {
     font-size: 40px;
@@ -662,7 +638,7 @@ nav svg {
     left: 0;
     transition: 0.5s;
   }
-  .body-1 a:hover {
+  .body-1 a:active {
     height: 45px;
     width: 110px;
     box-shadow: 8px 8px 0px 0px #000000;
@@ -674,12 +650,13 @@ nav svg {
   }
   .body-2 {
     display: flex;
-    width: calc(100vw - 20px);
+    width: calc(100% - 20px);
     flex-direction: column;
     height: auto;
     background-color: var(--backg-color);
     margin: 10px;
   }
+
   .about-body {
     width: 100%;
     height: auto;
@@ -703,37 +680,18 @@ nav svg {
     height: auto;
   }
   .about-image {
-    background-image: url("pictures/BRUTALIST ME.png");
-    background-position: center;
-    background-size: cover;
+    filter: grayscale(100%);
+    filter: brightness(120%);
     width: 100%;
     height: 400px;
     box-shadow: 4px 4px 0px 0px #000000;
     border: 5px solid black;
     transition: 0.5s;
   }
-  /*.about-image:hover {
-    background-image: url("pictures/BRUTALIST ME.png");
-    background-position: center;
-    background-size: cover;
-    width: 80%;
-    height: 400px;
-    position: absolute;
-    transform: scale(1.2);
-    z-index: 10;
-    border: 5px solid black;
-  }
-
-  .about-body:hover {
-    width: calc(100% + 20px);
-    height: auto;
-    box-shadow: 12px 15px 0px 0px #000000;
-    transform: translate3d(-20px, -20px, -100px);
-  }*/
 
   .body-3 {
     display: flex;
-    width: calc(100vw - 20px);
+    width: calc(100% - 20px);
     align-items: center;
     flex-direction: column;
     height: auto;
@@ -862,7 +820,7 @@ nav svg {
   }
   .body-4 {
     background-color: var(--backg-color);
-    width: calc(100vw - 20px);
+    width: calc(100% - 20px);
     margin: 10px;
   }
   .project-sctn-title {
@@ -882,10 +840,6 @@ nav svg {
     flex-direction: row;
     overflow-x: visible;
     background-color: var(--accent-color);
-    /* display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    grid-template-rows: repeat(auto-fit, minmax(100px, 1fr));
-    gap: 20px;*/
   }
   .project-card {
     width: 400px;
@@ -923,12 +877,11 @@ nav svg {
   }
   .body-5 {
     display: flex;
-    width: calc(100vw - 20px);
     flex-direction: column;
     height: auto;
     background-color: var(--backg-color);
     overflow: hidden;
-    margin: 10px;
+    margin: 20px;
   }
   .contact-title {
     width: 100%;
