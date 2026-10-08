@@ -4,6 +4,7 @@
   --accent-color: #ff4c00;
   --color-2: #00e676; /*shaddow color*/
   --color-3: #f4a300;
+  --back-g-color: black;
   --backg-color: antiquewhite;
 }
 * {
@@ -12,21 +13,19 @@
   box-sizing: border-box;
 }
 html {
-  font-size: 12pt;
+  font-size: 100%;
   font-family: sans-serif, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   scroll-behavior: smooth;
 }
 body {
   display: grid;
   grid-template-columns: (5rem, 1fr);
-  background-color: var(--backg-color);
+  background-color: var(--back-g-color);
 
   /*-webkit-filter: grayscale(100%);  For Safari, Chrome, and Opera 
   filter: grayscale(100%); Standard syntax for modern browsers */
 }
-body::-webkit-scrollbar {
-  display: none;
-}
+
 .video-Bg {
   position: fixed;
   width: 100%;
@@ -45,6 +44,15 @@ nav {
   position: sticky;
   top: 0;
   z-index: 10;
+}
+.logo {
+  display: block;
+  width: auto;
+  height: 60px;
+  position: fixed;
+  top: 0;
+  left: 10px;
+  z-index: 1000;
 }
 .links-container {
   height: 100%;
@@ -98,6 +106,19 @@ nav svg {
   padding: 10px;
   display: flex;
   flex-direction: column;
+  animation: appear linear;
+  animation-timeline: view();
+  animation-range: entry 0 cover 40%;
+}
+@keyframes appear {
+  from {
+    opacity: 0;
+    scale: 0.5;
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+  }
 }
 .body-1 {
   color: var(--text-color);
@@ -109,7 +130,7 @@ nav svg {
 }
 .body-1 a {
   height: 40px;
-  width: 100px;
+  width: 110px;
   transform: rotate(5deg);
   align-items: center;
   text-align: center;
@@ -127,7 +148,7 @@ nav svg {
 }
 .body-1 a:hover {
   height: 45px;
-  width: 110px;
+  width: 120px;
   rotate: -5deg;
   box-shadow: 8px 8px 0px 0px #000000;
   background-color: var(--color-2);
@@ -146,7 +167,19 @@ nav svg {
   box-shadow: 5px 4px 0px 0px #000000;
   border: 3px solid black;
   transition: 0.5s;
+  animation: move 1.5s linear;
 }
+@keyframes move {
+  from {
+    opacity: 0;
+    scale: 1;
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+  }
+}
+
 .Welcome:hover {
   width: 450px;
   height: 450px;
@@ -176,7 +209,7 @@ nav svg {
   justify-content: center;
   align-items: center;
   text-align: center;
-  font-size: 50px;
+  font-size: 3rem;
   font-weight: 700;
   border-radius: 10px;
   transform: translateX(50%);
@@ -202,7 +235,12 @@ nav svg {
   border: 3px solid black;
   transition: 0.5s;
 }
-
+/*.about-body:hover {
+  width: calc(50% + 20px);
+  height: auto;
+  box-shadow: 12px 15px 0px 0px #000000;
+  transform: translate3d(-20px, -20px, -100px);
+}*/
 .about-body a {
   text-decoration: none;
   background-color: var(--backg-color);
@@ -212,13 +250,10 @@ nav svg {
   filter: brightness(120%);
   width: 40%;
   height: auto;
-  box-shadow: 8px 8px 0px 0px #000000;
-  border: 5px solid black;
   transition: 0.5s;
   overflow: hidden;
 }
 .about-image img {
-   filter: brightness(120%);
   width: 100%;
   height: auto;
   object-fit: cover;
@@ -245,13 +280,13 @@ nav svg {
   padding: 20px;
   background-color: antiquewhite;
 }
-.skill-title h2 {
-  font-size: 80px;
+.skill-title h1 {
+  font-size: 3rem;
   font-weight: 800;
 }
 .skill-title p {
-  font-size: 30px;
-  font-weight: 600;
+  font-size: 1rem;
+  font-weight: 400;
 }
 .work {
   display: flex;
@@ -363,13 +398,13 @@ nav svg {
   margin: 10px;
 }
 .project-sctn-title {
-  font-size: 40px;
-  font-weight: 700;
+  font-size: 3rem;
+  font-weight: 800;
   margin-bottom: 20px;
 }
 .project-sctn-text {
-  font-size: 20px;
-  font-weight: 500;
+  font-size: 1rem;
+  font-weight: 400;
   margin-bottom: 20px;
 }
 .project-grid {
@@ -427,11 +462,11 @@ nav svg {
   text-align: start;
 }
 .contact-title h1 {
-  font-size: 100px;
+  font-size: 3rem;
   font-weight: 700;
 }
 .contact-title p {
-  font-size: 20px;
+  font-size: 1rem;
   font-weight: 500;
 }
 .contact-body {
@@ -454,6 +489,7 @@ nav svg {
   background-color: var(--color-3);
   padding: 20px;
   text-align: center;
+  font-size: 1rem;
   font-weight: 600;
   width: 80%;
   display: flex;
@@ -506,10 +542,123 @@ nav svg {
 /* sml scrn */
 
 @media (max-width: 600px) {
+  :root {
+    --color-1: #1c1c1c;
+    --text-color: black;
+    --accent-color: #ff4c00;
+    --color-2: #00e676; /*shaddow color*/
+    --color-3: #f4a300;
+    --back-g-color: black;
+    --backg-color: #ccbeb1;
+    --con-bkg-color: antiquewhite;
+  }
   * {
-    overflow: hidden;
     overflow-y: scroll;
     box-sizing: border-box;
+  }
+  body {
+    background-color: var(--backg-color);
+  }
+  .background {
+    height: 100vh;
+    width: 100vw;
+    border: 1px solid (--color-1);
+    display: grid;
+    position: fixed;
+    z-index: -1;
+    grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+    grid-template-rows: repeat(auto-fit, minmax(40px, 1fr));
+  }
+  .grid {
+    background-color: var(--backg-color);
+    border: 2px solid #18040744;
+    box-shadow: -1px 3px 3px var(--color-1);
+    animation: appear 2s linear;
+  }
+  @keyframes appear {
+    0% {
+      opacity: 0.1;
+      scale: 0.1;
+    }
+    10% {
+      opacity: 0.1;
+      scale: 0.2;
+    }
+    20% {
+      opacity: 0.2;
+      scale: 0.3;
+    }
+    30% {
+      opacity: 0.3;
+      scale: 0.4;
+    }
+    40% {
+      opacity: 0.4;
+      scale: 0.5;
+    }
+    50% {
+      opacity: 0.5;
+      scale: 0.6;
+    }
+    60% {
+      opacity: 0.4;
+      scale: 0.7;
+    }
+    70% {
+      opacity: 0.4;
+      scale: 0.8;
+    }
+    80% {
+      opacity: 0.8;
+      scale: 0.9;
+    }
+    90% {
+      opacity: 0.9;
+      scale: 0.95;
+    }
+    100% {
+      opacity: 1;
+      scale: 1;
+    }
+  }
+
+  .video-Bg {
+    display: none;
+  }
+
+  .body-2,
+  .body-3,
+  .body-4,
+  .body-5 {
+    box-shadow: 5px 5px 0px 0px #000000;
+    overflow-y: auto;
+    scroll-snap-type: y mandatory;
+    position: relative;
+    height: auto;
+    background-color: var(--con-bkg-color);
+    animation: appear linear;
+    animation-timeline: view();
+    animation-range: entry 0 cover 0%;
+  }
+  @keyframes appear {
+    from {
+      opacity: 0;
+      scale: 0.5;
+    }
+    to {
+      opacity: 1;
+      scale: 1;
+    }
+  }
+
+  .logo {
+    display: block;
+    width: auto;
+    height: 60px;
+    position: fixed;
+    top: 0;
+    left: 10px;
+    z-index: 10;
   }
   nav {
     display: flex;
@@ -521,7 +670,7 @@ nav svg {
     position: fixed;
     top: 0;
     right: 0;
-    z-index: 1000;
+    z-index: 10;
   }
   .links-container {
     flex-direction: column;
@@ -529,25 +678,25 @@ nav svg {
     position: fixed;
     top: 0;
     right: -100%;
-    z-index: 10;
-    width: 300px;
+    z-index: 1000;
+    width: 280px;
     background-color: var(--color-3);
-    box-shadow: -5px 0 5px var(--color-2);
+    box-shadow: -5px 0 5px var(--color-1);
     transition: 0.75s ease-out;
   }
 
   nav a {
     box-sizing: border-box;
     height: auto;
-    width: 80%;
+    width: 100%;
     padding: 20px 30px;
     justify-content: flex-start;
   }
-  nav a:active {
+  nav a:hover {
     font-weight: 700;
     width: calc(100% - 20px);
     height: auto;
-    box-shadow: 4px 4px 0px 0px #000000;
+    box-shadow: 10px 4px 0px 0px #000000;
     border: 2px solid black;
     background-color: var(--color-2);
   }
@@ -557,24 +706,6 @@ nav svg {
     padding: 10px;
   }
 
-  .backToTopBtn {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    padding: 10px 15px;
-    background-color: var(--accent-color);
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  /*.open-sidebar-button {
-    position: sticky;
-    background-color: aliceblue;
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: 100;
-  }*/
   #sidebar-active:checked ~ .links-container {
     top: 0;
     right: 0;
@@ -611,7 +742,19 @@ nav svg {
     box-shadow: 5px 4px 0px 0px #000000;
     border: 3px solid black;
     transition: 0.5s;
+    animation: appear 1.5s linear;
   }
+  @keyframes appear {
+    from {
+      opacity: 0.5;
+      scale: 0.5;
+    }
+    to {
+      opacity: 1;
+      scale: 1;
+    }
+  }
+
   .Welcome:hover {
     width: 350px;
     height: 450px;
@@ -619,7 +762,7 @@ nav svg {
   }
   .body-1 a {
     height: 40px;
-    width: 100px;
+    width: auto-fit;
     align-items: center;
     text-align: center;
     justify-content: center;
@@ -627,7 +770,9 @@ nav svg {
     text-decoration: none;
     color: #000000;
     font-weight: 600;
-    background-color: var(--accent-color);
+    box-shadow: 10px 5px 0px 0px #000000;
+
+    background-color: var(--color-3);
     border: 3px solid black;
     position: relative;
     top: 20px;
@@ -636,7 +781,7 @@ nav svg {
   }
   .body-1 a:active {
     height: 45px;
-    width: 110px;
+    width: calc(auto-fit + 5px);
     box-shadow: 8px 8px 0px 0px #000000;
     background-color: var(--color-2);
   }
@@ -648,8 +793,6 @@ nav svg {
     display: flex;
     width: calc(100% - 20px);
     flex-direction: column;
-    height: auto;
-    background-color: var(--backg-color);
     margin: 10px;
   }
 
@@ -660,29 +803,25 @@ nav svg {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    z-index: 8;
+    box-shadow: 5px 3px 0px 0px #000000;
+    border: 1px solid black;
+    font-size: 12px;
   }
-  .about-title {
-    height: auto;
-    width: 50%;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    font-size: 30px;
-    font-weight: 500;
-  }
+
   .about-text {
     display: flex;
     flex-direction: column;
     height: auto;
   }
   .about-image {
-    filter: grayscale(100%);
     filter: brightness(120%);
     width: 100%;
     height: 400px;
-    box-shadow: 4px 4px 0px 0px #000000;
-    border: 5px solid black;
-    
+    z-index: 7;
+    box-shadow: 5px 5px 0px 0px #000000;
+    border: 1px solid black;
+    transition: 0.5s;
   }
 
   .body-3 {
@@ -690,7 +829,6 @@ nav svg {
     width: calc(100% - 20px);
     align-items: center;
     flex-direction: column;
-    height: auto;
     margin: 10px;
   }
   .skill-title {
@@ -702,13 +840,13 @@ nav svg {
     padding: 20px;
     background-color: antiquewhite;
   }
-  .skill-title h2 {
-    font-size: 50px;
-    font-weight: 800;
+  .skill-title h1 {
+    font-size: 2rem;
+    font-weight: 600;
   }
   .skill-title p {
-    font-size: 20px;
-    font-weight: 600;
+    font-size: 1rem;
+    font-weight: 500;
   }
   .work {
     display: flex;
@@ -815,12 +953,11 @@ nav svg {
     content: "";
   }
   .body-4 {
-    background-color: var(--backg-color);
     width: calc(100% - 20px);
     margin: 10px;
   }
   .project-sctn-title {
-    font-size: 40px;
+    font-size: 2rem;
     font-weight: 700;
     margin-bottom: 20px;
   }
@@ -876,7 +1013,6 @@ nav svg {
     flex-direction: column;
     width: calc(100% - 20px);
     height: auto;
-    background-color: var(--backg-color);
     overflow: hidden;
     margin: 10px;
   }
@@ -893,11 +1029,11 @@ nav svg {
     text-align: start;
   }
   .contact-title h1 {
-    font-size: 50px;
+    font-size: 2rem;
     font-weight: 700;
   }
   .contact-title p {
-    font-size: 20px;
+    font-size: 1rem;
     font-weight: 500;
   }
   .contact-body {
@@ -916,6 +1052,7 @@ nav svg {
   .contact-body li {
     position: relative;
     background-color: var(--color-3);
+    font-size: 1rem;
     padding: 20px;
     text-align: center;
     font-weight: 600;
@@ -951,7 +1088,7 @@ nav svg {
   }
   .footer {
     height: 10vh;
-    background-color: var(--backg-color);
+    background-color: antiquewhite;
     color: gray;
     justify-content: center;
     align-items: center;
