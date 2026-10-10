@@ -541,7 +541,7 @@ nav svg {
   color: var(--backg-color);
 }
 .footer {
-  height: 20vh;
+  height: 10vh;
   background-color: var(--backg-color);
   color: gray;
   justify-content: center;
