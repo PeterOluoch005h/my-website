@@ -1109,11 +1109,14 @@ nav svg {
     color: var(--backg-color);
   }
   .footer {
-    height: 10vh;
+    height: 5vh;
     background-color: antiquewhite;
     color: gray;
     justify-content: center;
     align-items: center;
     text-align: center;
+  }
+  .footer h1 {
+    font-size: 20px;
   }
 }
